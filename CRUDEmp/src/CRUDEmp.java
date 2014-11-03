@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author Vinicius
  */
-public class CRUDPet extends Application {
+public class CRUDEmp extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
