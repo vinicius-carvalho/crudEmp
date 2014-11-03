@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="469.0" prefWidth="782.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.EmprestadosController">
+   <children>
+      <BorderPane layoutY="-2.0" prefHeight="400.0" prefWidth="602.0">
+         <center>
+            <Pane prefHeight="378.0" prefWidth="646.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView layoutX="45.0" layoutY="14.0" prefHeight="184.0" prefWidth="677.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Nome" />
+                      <TableColumn prefWidth="81.0" text="Livro" />
+                        <TableColumn prefWidth="124.0" text="Dia do Emprestimo" />
+                        <TableColumn minWidth="3.0" prefWidth="109.0" text="Data de entrega" />
+                        <TableColumn prefWidth="92.0" text="Telefone" />
+                        <TableColumn prefWidth="92.0" text="Endereço" />
+                        <TableColumn prefWidth="92.0" text="E-mail" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+         </center>
+         <top>
+            <Pane prefHeight="52.0" prefWidth="602.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="247.0" layoutY="7.0" text="Lista de Livros Emprestados">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <bottom>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+      <Button fx:id="fechar" layoutX="688.0" layoutY="414.0" mnemonicParsing="false" onAction="#fecharMet" text="Fechar" />
+      <Button fx:id="edtUser" layoutX="378.0" layoutY="401.0" mnemonicParsing="false" onAction="#editPetMet" text="Editar" />
+      <Button id="handleBtnAdd" fx:id="handleBtnAdd" layoutX="227.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleBtnAdd" text="Cadastrar Emprestimo" />
+      <Button fx:id="delPet" layoutX="451.0" layoutY="401.0" mnemonicParsing="false" onAction="#delPetMet" text="Finalizar emprestimo" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fatec.labd.crudpet.controller.MainController">
+    <bottom>
+        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button id="handleBtnAdd" fx:id="handleBtnAdd" layoutX="234.0" layoutY="128.0" mnemonicParsing="false" onAction="#handleBtnAdd" text="Cadastrar livro" />
+                <Button fx:id="edtUser" layoutX="336.0" layoutY="128.0" mnemonicParsing="false" onAction="#editPetMet" text="Editar livro" />
+                <Button fx:id="delPet" layoutX="418.0" layoutY="128.0" mnemonicParsing="false" onAction="#delPetMet" text="Deletar livro" />
+                <Button fx:id="fechar" layoutX="518.0" layoutY="161.0" mnemonicParsing="false" onAction="#fecharMet" text="Fechar" />
+            <Button layoutX="97.0" layoutY="128.0" mnemonicParsing="false" text="Lista de emprestimos" />
+            </children>
+        </Pane>
+    </bottom>
+   <top>
+        <TableView id="tblPet" fx:id="tblPet" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn id="tblColNome" fx:id="tblColNome" prefWidth="274.0" text="Título" />
+                <TableColumn id="tblColPeso" fx:id="tblColPeso" minWidth="1.0" prefWidth="139.0" text="Autor" />
+                <TableColumn id="tblColData" fx:id="tblColData" prefWidth="83.0" text="Editora" />
+                <TableColumn id="tblColTipo" fx:id="tblColTipo" prefWidth="103.0" text="Emprestado" />
+            </columns>
+        </TableView>
+   </top>
+</BorderPane>

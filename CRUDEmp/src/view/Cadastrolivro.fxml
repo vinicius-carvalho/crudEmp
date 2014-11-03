@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="517.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fatec.labd.crudpet.controller.CadsController">
+   <children>
+      <BorderPane layoutX="32.0" layoutY="13.0" prefHeight="449.0" prefWidth="633.0">
+         <top>
+            <Label text="Cadastro de Pets" BorderPane.alignment="CENTER" />
+         </top>
+         <bottom>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="fechar" layoutX="367.0" layoutY="153.0" mnemonicParsing="false" onAction="#fecharCad" text="Cancelar" />
+                  <Button fx:id="cadastrar" layoutX="108.0" layoutY="153.0" mnemonicParsing="false" onAction="#cadastrarCad" text="Cadastrar" />
+                  
+               </children>
+            </Pane>
+         </bottom>
+         <left>
+            <Pane prefHeight="290.0" prefWidth="579.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="txtfnome" layoutX="39.0" layoutY="50.0" prefHeight="25.0" prefWidth="206.0" />
+                  <Label layoutX="23.0" layoutY="26.0" text="Nome" />
+                  <TextField fx:id="txtfpeso" layoutX="39.0" layoutY="112.0" prefHeight="25.0" prefWidth="206.0" />
+                  <TextField fx:id="txtfdata" layoutX="39.0" layoutY="174.0" prefHeight="25.0" prefWidth="206.0" />
+                  <Label layoutX="24.0" layoutY="92.0" text="Peso" />
+                  <Label layoutX="16.0" layoutY="154.0" text="Data de nascimento" />
+                  <Label layoutX="22.0" layoutY="217.0" text="Tipo" />
+                  <TextField id="txtftipo" fx:id="txtftipo" layoutX="39.0" layoutY="237.0" prefHeight="25.0" prefWidth="206.0" />
+               </children></Pane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
