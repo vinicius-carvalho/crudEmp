@@ -1,23 +1,24 @@
 package model.db.dao;
 
 import java.util.List;
+import model.livros.Livro;
 
-import model.pet.Animal;
+
 
 public interface LivrosDao {
 	
-       boolean add(Animal pet);
+       boolean add(Livro livro);
 
-	List<Animal> list();
+	List<Livro> list();
 
-	Animal find(long id);
+	Livro find(long id);
 
 	int remove(long id);
 
-	int update(Animal pet);
+	int update(Livro livro);
 
-	Animal findByLogin(String nome);
+	Livro findByLogin(String nome);
 
-	List<Animal> search(String term);
+	List<Livro> search(String term);
 
 }

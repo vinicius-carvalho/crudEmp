@@ -8,7 +8,7 @@ public class ConnectionFactory {
 	public Connection createConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/crudpet";
+			String url = "jdbc:mysql://localhost/crudemp";
 			String user = "root";
 			String pass = "root";
 			Connection con = DriverManager.getConnection(url, user, pass);

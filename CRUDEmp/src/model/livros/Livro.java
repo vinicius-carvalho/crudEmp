@@ -1,9 +1,16 @@
 package model.livros;
 
 import java.io.Serializable;
-import controller.EmprestadosController;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity @Table(name="Livros")
 public class Livro implements Serializable {
 
+    
+    @Id @GeneratedValue
     private Long id;
     private String nome;
     private float peso;

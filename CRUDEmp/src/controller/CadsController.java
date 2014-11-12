@@ -12,9 +12,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import model.db.dao.PetDao;
-import model.db.dao.PetDaoJDBC;
-import model.pet.Animal;
+import model.db.dao.LivrosDao;
+import model.db.dao.LivrosDaoJPA;
+import model.livros.Livro;
 
 /**
  * FXML Controller class
