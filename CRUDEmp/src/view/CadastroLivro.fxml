@@ -1,25 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="601.0" prefWidth="672.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.CadastroLivroController">
+<AnchorPane id="AnchorPane" prefHeight="601.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroLivroController">
    <children>
       <BorderPane layoutX="-1.0" layoutY="-1.0" prefHeight="601.0" prefWidth="672.0">
          <top>
-            <Pane prefHeight="135.0" prefWidth="672.0" BorderPane.alignment="CENTER">
+            <Pane prefHeight="87.0" prefWidth="672.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="322.0" layoutY="59.0" text="Label" />
+                  <Label layoutX="238.0" layoutY="31.0" text="Cadastro Livro">
+                     <font>
+                        <Font name="System Bold" size="29.0" />
+                     </font></Label>
                </children>
             </Pane>
          </top>
          <center>
-            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="414.0" prefWidth="672.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="87.0" text="Titulo:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="16.0" layoutY="140.0" text="Editora:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="199.0" text="Quantidade:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="340.0" />
+                  <TextField layoutX="14.0" layoutY="160.0" prefHeight="25.0" prefWidth="340.0" />
+                  <TextField layoutX="14.0" layoutY="218.0" prefHeight="25.0" prefWidth="340.0" />
+                  <Button layoutX="14.0" layoutY="255.0" mnemonicParsing="false" text="Salvar">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="90.0" layoutY="255.0" mnemonicParsing="false" text="Cancelar">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children></Pane>
          </center>
+         <bottom>
+            <Pane prefHeight="97.0" prefWidth="672.0" BorderPane.alignment="CENTER" />
+         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>

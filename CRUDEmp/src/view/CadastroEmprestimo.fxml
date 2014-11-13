@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="model.CadastroEmprestimoController">
+   <children>
+      <BorderPane prefHeight="605.0" prefWidth="628.0">
+         <top>
+            <Pane prefHeight="88.0" prefWidth="628.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="168.0" layoutY="34.0" text="Cadastro Emprestimo">
+                     <font>
+                        <Font name="System Bold" size="29.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <bottom>
+            <Pane prefHeight="66.0" prefWidth="629.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <left>
+            <Pane prefHeight="340.0" prefWidth="629.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="23.0" text="Codigo Usuario:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="57.0" text="Codigo Livro:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="97.0" text="Data de Emprestimo:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="133.0" text="Data de Entrega:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="151.0" layoutY="21.0" prefHeight="25.0" prefWidth="66.0" />
+                  <TextField layoutX="151.0" layoutY="55.0" prefHeight="25.0" prefWidth="65.0" />
+                  <TextField layoutX="151.0" layoutY="93.0" />
+                  <Label layoutX="327.0" layoutY="97.0" text="Ex: dd/mm/aaaa" />
+                  <TextField layoutX="151.0" layoutY="129.0" />
+                  <Label layoutX="327.0" layoutY="133.0" text="Ex: dd/mm/aaaa" />
+                  <Button layoutX="14.0" layoutY="166.0" mnemonicParsing="false" text="Salvar">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="84.0" layoutY="166.0" mnemonicParsing="false" text="Cancelar">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
