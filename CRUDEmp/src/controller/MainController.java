@@ -16,14 +16,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javafx.stage.Stage;
-import model.db.dao.PetDaoJDBC;
-import model.pet.Animal;
+import model.db.dao.LivrosDaoJPA;
+import model.livros.Livro;
 
 /**
  *
@@ -31,32 +30,29 @@ import model.pet.Animal;
  */
 public class MainController implements Initializable {
 
-    private PetDaoJDBC dao;
+    private LivrosDaoJPA dao;
     CadsController controller = new CadsController();
 
-
-
     @FXML
-    private TableView<Animal> tblPet;
+    private TableView<Livro> tbllivro;
 
     @FXML
-    private TableColumn<Animal, String> tblColNome;
+    private TableColumn<Livro, String> tblColTitulo;
 
     @FXML
-    private TableColumn<Animal, String> tblColPeso;
+    private TableColumn<Livro, String> tblColAutor;
 
     @FXML
-    private TableColumn<Animal, String> tblColData;
-    
-    @FXML
-    private TableColumn<Animal, String> tblColTipo;
-    
+    private TableColumn<Livro, String> tblColEditora;
 
     @FXML
-    private void cadPetMet(ActionEvent event) {
+    private TableColumn<Livro, String> tblColEmprestado;
+
+    @FXML
+    private void cadLivro(ActionEvent event) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/CadastroPet.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/CadastroLivro.fxml"));
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -71,12 +67,12 @@ public class MainController implements Initializable {
     private void editPetMet(ActionEvent event) {
 
         try {
-            Animal pet = tblPet.getSelectionModel().getSelectedItem();
+            Livro pet = tbllivro.getSelectionModel().getSelectedItem();
 
             /*controller.getTxtflogin().setText(login);
              controller.getTxtfname().setText(name);
              controller.getTxtfphone().setText(phone);*/
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CadastroPet.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CadastroLivro.fxml"));
             Parent root = (Parent) loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -87,8 +83,6 @@ public class MainController implements Initializable {
             controller.getTxtfpeso().setText(String.valueOf(pet.getPeso()));
             controller.getTxtfdata().setText(pet.getData());
             controller.getTxtftipo().setText(pet.getTipo());
-
-            
 
             stage.showAndWait();
 
@@ -102,7 +96,7 @@ public class MainController implements Initializable {
     @FXML
     private void delPetMet() {
 
-        Animal pet = tblPet.getSelectionModel().getSelectedItem();
+        Livro pet = tbllivro.getSelectionModel().getSelectedItem();
 
         dao.remove(pet.getId());
         updateView();
@@ -117,10 +111,10 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tblColNome.setCellValueFactory(new PropertyValueFactory<Animal, String>("nome"));
-        tblColPeso.setCellValueFactory(new PropertyValueFactory<Animal, String>("peso"));
-        tblColData.setCellValueFactory(new PropertyValueFactory<Animal, String>("data"));
-        tblColTipo.setCellValueFactory(new PropertyValueFactory<Animal, String>("tipo"));
+        tblColTitulo.setCellValueFactory(new PropertyValueFactory<Livro, String>("nome"));
+        tblColAutor.setCellValueFactory(new PropertyValueFactory<Livro, String>("peso"));
+        tblColEditora.setCellValueFactory(new PropertyValueFactory<Livro, String>("data"));
+        tblColEmprestado.setCellValueFactory(new PropertyValueFactory<Livro, String>("tipo"));
 
         dao = new PetDaoJDBC();
 
@@ -129,7 +123,7 @@ public class MainController implements Initializable {
     }
 
     private void updateView() {
-        tblPet.setItems(FXCollections.observableArrayList(dao.list()));
+        tbllivro.setItems(FXCollections.observableArrayList(dao.list()));
 
     }
 
@@ -143,8 +137,6 @@ public class MainController implements Initializable {
         stage.showAndWait();
 
         CadsController controller = loader.getController();
-
-      
 
         updateView();
 

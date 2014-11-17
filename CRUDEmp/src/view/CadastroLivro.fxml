@@ -20,10 +20,18 @@
                </children>
             </Pane>
          </top>
-         <center>
+         <bottom>
+            <Pane prefHeight="97.0" prefWidth="672.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <left>
             <Pane prefHeight="414.0" prefWidth="672.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="14.0" layoutY="87.0" text="Titulo:">
+                  <Label layoutX="14.0" layoutY="87.0" text="Título:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="32.0" text="Autor:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -38,9 +46,10 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="340.0" />
-                  <TextField layoutX="14.0" layoutY="160.0" prefHeight="25.0" prefWidth="340.0" />
+                  <TextField layoutX="14.0" layoutY="52.0" prefHeight="25.0" prefWidth="340.0" />
                   <TextField layoutX="14.0" layoutY="218.0" prefHeight="25.0" prefWidth="340.0" />
+                  <TextField layoutX="14.0" layoutY="160.0" prefHeight="25.0" prefWidth="340.0" />
+                  <TextField layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="340.0" />
                   <Button layoutX="14.0" layoutY="255.0" mnemonicParsing="false" text="Salvar">
                      <font>
                         <Font name="System Bold" size="14.0" />
@@ -52,10 +61,7 @@
                      </font>
                   </Button>
                </children></Pane>
-         </center>
-         <bottom>
-            <Pane prefHeight="97.0" prefWidth="672.0" BorderPane.alignment="CENTER" />
-         </bottom>
+         </left>
       </BorderPane>
    </children>
 </AnchorPane>
