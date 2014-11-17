@@ -8,6 +8,7 @@ package model.db.dao;
 
 import java.util.List;
 import model.livros.Livro;
+import model.user.User;
 
 /**
  *
@@ -17,16 +18,12 @@ public interface UsuarioDAO {
     
       boolean add(User User);
 
-	User<User> list();
+	List<User> list();
 
 	User find(long id);
 
 	int remove(long id);
 
 	int update(Livro livro);
-
-	User findByLogin(String nome);
-
-	User<User> search(String term)
     
 }
