@@ -1,42 +1,30 @@
-package model.livros;
+package model.user;
 
+import model.livros.*;
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import model.user.User;
 
-@Entity @Table(name="Livros")
-public class Livro implements Serializable {
+@Entity @Table(name="User")
+public class User implements Serializable {
 
     
     @Id @GeneratedValue
     private Long id;
-    @OneToOne(fetch=FetchType.LAZY,mappedBy="livro")
-    private User owner;
-    
+    @OneToOne
+    private Livro livro;
     private String nome;
-    private float peso;
+    private String telefone;
     private String data;
-    private String tipo;
-
+    private String endereco;
+    private String email;
   
 
-    public Livro() {
+    public User() {
     }
-    
-    
-      public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-    
 
     public Long getId() {
         return id;
@@ -54,12 +42,12 @@ public class Livro implements Serializable {
         this.nome = nome;
     }
 
-    public float getPeso() {
-        return peso;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setPeso(float peso) {
-        this.peso = peso;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getData() {
@@ -70,6 +58,22 @@ public class Livro implements Serializable {
         this.data = data;
     }
 
-  
+    public String getEndereco() {
+        return endereco;
+    }
 
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+
+    
 }
