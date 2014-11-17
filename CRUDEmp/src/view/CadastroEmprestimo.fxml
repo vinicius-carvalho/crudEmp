@@ -47,11 +47,11 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="151.0" layoutY="21.0" prefHeight="25.0" prefWidth="66.0" />
-                  <TextField layoutX="151.0" layoutY="55.0" prefHeight="25.0" prefWidth="65.0" />
-                  <TextField layoutX="151.0" layoutY="93.0" />
+                  <TextField fx:id="txtCodUser" layoutX="151.0" layoutY="21.0" prefHeight="25.0" prefWidth="66.0" />
+                  <TextField fx:id="txtCodLivro" layoutX="151.0" layoutY="55.0" prefHeight="25.0" prefWidth="65.0" />
+                  <TextField fx:id="txtDataEmprestimo" layoutX="151.0" layoutY="93.0" />
                   <Label layoutX="327.0" layoutY="97.0" text="Ex: dd/mm/aaaa" />
-                  <TextField layoutX="151.0" layoutY="129.0" />
+                  <TextField fx:id="txtDataEntrega" layoutX="151.0" layoutY="129.0" />
                   <Label layoutX="327.0" layoutY="133.0" text="Ex: dd/mm/aaaa" />
                   <Button layoutX="14.0" layoutY="166.0" mnemonicParsing="false" text="Salvar">
                      <font>

@@ -46,10 +46,10 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="14.0" layoutY="52.0" prefHeight="25.0" prefWidth="340.0" />
-                  <TextField layoutX="14.0" layoutY="218.0" prefHeight="25.0" prefWidth="340.0" />
-                  <TextField layoutX="14.0" layoutY="160.0" prefHeight="25.0" prefWidth="340.0" />
-                  <TextField layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="340.0" />
+                  <TextField fx:id="txtAutor" layoutX="14.0" layoutY="52.0" prefHeight="25.0" prefWidth="340.0" />
+                  <TextField fx:id="txtQuantidade" layoutX="14.0" layoutY="218.0" prefHeight="25.0" prefWidth="340.0" />
+                  <TextField fx:id="txtEditora" layoutX="14.0" layoutY="160.0" prefHeight="25.0" prefWidth="340.0" />
+                  <TextField fx:id="txtTitulo" layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="340.0" />
                   <Button layoutX="14.0" layoutY="255.0" mnemonicParsing="false" text="Salvar">
                      <font>
                         <Font name="System Bold" size="14.0" />
