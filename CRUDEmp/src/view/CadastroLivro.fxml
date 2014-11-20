@@ -50,12 +50,12 @@
                   <TextField fx:id="txtQuantidade" layoutX="14.0" layoutY="218.0" prefHeight="25.0" prefWidth="340.0" />
                   <TextField fx:id="txtEditora" layoutX="14.0" layoutY="160.0" prefHeight="25.0" prefWidth="340.0" />
                   <TextField fx:id="txtTitulo" layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="340.0" />
-                  <Button layoutX="14.0" layoutY="255.0" mnemonicParsing="false" text="Salvar">
+                  <Button fx:id="btnSalvar" layoutX="14.0" layoutY="255.0" mnemonicParsing="false" onAction="#handlerSalvar" text="Salvar">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button layoutX="90.0" layoutY="255.0" mnemonicParsing="false" text="Cancelar">
+                  <Button fx:id="btnCancelar" layoutX="90.0" layoutY="255.0" mnemonicParsing="false" onAction="#handlerCancelar" text="Cancelar">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

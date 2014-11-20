@@ -9,34 +9,19 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import model.user.User;
 
-@Entity @Table(name="Livros")
+@Entity
+@Table(name = "Livros")
 public class Livro implements Serializable {
 
-    
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
-    @OneToOne(fetch=FetchType.LAZY,mappedBy="livro")
-    private User owner;
-    
-    private String nome;
-    private float peso;
-    private String data;
-    private String tipo;
-
-  
-
-    public Livro() {
-    }
-    
-    
-      public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-    
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "livro")
+    private User owner; //Irá ter referência para o User ?
+    private String autor;
+    private String titulo;
+    private String editora;
+    private int quantidade;
 
     public Long getId() {
         return id;
@@ -46,30 +31,49 @@ public class Livro implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
-    public float getPeso() {
-        return peso;
+    public String getAutor() {
+        return autor;
     }
 
-    public void setPeso(float peso) {
-        this.peso = peso;
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
-    public String getData() {
-        return data;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-  
+    public String getEditora() {
+        return editora;
+    }
+
+    public void setEditora(String editora) {
+        this.editora = editora;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+    
+    
+    
+    
+    
 
 }
