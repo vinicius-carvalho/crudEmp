@@ -1,27 +1,27 @@
 package model.user;
 
-import model.livros.*;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import model.emprestimo.Emprestimo;
 
-@Entity @Table(name="User")
+@Entity
+@Table(name = "User")
 public class User implements Serializable {
 
-    
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
-    @OneToOne
-    private Livro livro;
     private String nome;
     private String telefone;
     private String data;
     private String endereco;
     private String email;
-  
 
     public User() {
     }
@@ -73,7 +73,5 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
 
-    
 }
