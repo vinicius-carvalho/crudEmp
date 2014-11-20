@@ -11,7 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-import model.livros.Livro;
+import model.livro.Livro;
 import model.user.User;
 
 /**
@@ -64,10 +64,10 @@ public class UsuarioDaoJPA implements UsuarioDAO{
     }
 
     @Override
-    public int update(Livro livro) {
+    public int update(User user) {
         EntityManager em = factory.createEntityManager();
         em.getTransaction().begin();
-        em.merge(livro);
+        em.merge(user);
         em.getTransaction().commit();
         em.close();
         return 1;

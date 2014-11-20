@@ -1,19 +1,18 @@
-﻿package model.livros;
+package model.livro;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import model.user.User;
 
-<<<<<<< HEAD
-@Entity @Table(name="livro")
-public class Livro implements Serializable {
 
-    
-=======
+
 @Entity
-@Table(name = "Livros")
+@Table(name = "Livro")
 public class Livro implements Serializable {
 
     @Id
@@ -25,7 +24,7 @@ public class Livro implements Serializable {
     private String titulo;
     private String editora;
     
->>>>>>> c7c4174a175b74fa56f53edb2d31dfe2abdc4685
+
 
     public Long getId() {
         return id;

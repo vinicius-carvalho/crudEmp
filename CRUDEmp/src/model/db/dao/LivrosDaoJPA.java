@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import model.db.connection.ConnectionFactory;
-import model.livros.Livro;
+import model.livro.Livro;
 
 public class LivrosDaoJPA implements LivrosDao {
 

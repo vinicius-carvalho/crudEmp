@@ -1,7 +1,7 @@
 package model.db.dao;
 
 import java.util.List;
-import model.livros.Livro;
+import model.livro.Livro;
 
 
 
