@@ -21,7 +21,6 @@ public class Livro implements Serializable {
     private String autor;
     private String titulo;
     private String editora;
-    private int quantidade;
 
     public Long getId() {
         return id;
@@ -61,19 +60,6 @@ public class Livro implements Serializable {
 
     public void setEditora(String editora) {
         this.editora = editora;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-    
-    
-    
-    
-    
+    }    
 
 }

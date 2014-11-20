@@ -41,21 +41,15 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="14.0" layoutY="199.0" text="Quantidade:">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
                   <TextField fx:id="txtAutor" layoutX="14.0" layoutY="52.0" prefHeight="25.0" prefWidth="340.0" />
-                  <TextField fx:id="txtQuantidade" layoutX="14.0" layoutY="218.0" prefHeight="25.0" prefWidth="340.0" />
                   <TextField fx:id="txtEditora" layoutX="14.0" layoutY="160.0" prefHeight="25.0" prefWidth="340.0" />
                   <TextField fx:id="txtTitulo" layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="340.0" />
-                  <Button fx:id="btnSalvar" layoutX="14.0" layoutY="255.0" mnemonicParsing="false" onAction="#handlerSalvar" text="Salvar">
+                  <Button fx:id="btnSalvar" layoutX="16.0" layoutY="194.0" mnemonicParsing="false" onAction="#handlerSalvar" text="Salvar">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnCancelar" layoutX="90.0" layoutY="255.0" mnemonicParsing="false" onAction="#handlerCancelar" text="Cancelar">
+                  <Button fx:id="btnCancelar" layoutX="90.0" layoutY="194.0" mnemonicParsing="false" onAction="#handlerCancelar" text="Cancelar">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
