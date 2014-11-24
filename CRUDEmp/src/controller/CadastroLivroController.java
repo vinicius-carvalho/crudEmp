@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
 import java.net.URL;
@@ -14,7 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.db.dao.LivrosDaoJPA;
-import model.livros.Livro;
+import model.livro.Livro;
 
 /**
  * FXML Controller class
@@ -24,45 +23,73 @@ import model.livros.Livro;
 public class CadastroLivroController implements Initializable {
 
     @FXML
-    private TextField txtAutor, txtTitulo, txtEditora, txtQuantidade;
+    private TextField txtAutor, txtTitulo, txtEditora;
     @FXML
     private Button btnSalvar, btnCancelar;
-    
+
     private Livro livro;
-    private LivrosDaoJPA livrosDaoJPA;
+
+    public TextField getTxtAutor() {
+        return txtAutor;
+    }
+
+    public void setTxtAutor(TextField txtAutor) {
+        this.txtAutor = txtAutor;
+    }
+
+    public TextField getTxtTitulo() {
+        return txtTitulo;
+    }
+
+    public void setTxtTitulo(TextField txtTitulo) {
+        this.txtTitulo = txtTitulo;
+    }
+
+    public TextField getTxtEditora() {
+        return txtEditora;
+    }
+
+    public void setTxtEditora(TextField txtEditora) {
+        this.txtEditora = txtEditora;
+    }
+
+
+    public Livro getLivro() {
+        return livro;
+    }
+
+    public void setLivro(Livro livro) {
+        this.livro = livro;
+    }
     
-    public Livro getNewLivro(){
+    
+    private LivrosDaoJPA livrosDaoJPA;
+
+    public Livro getNewLivro() {
         livro = new Livro();
         livro.setAutor(txtAutor.getText().toString());
         livro.setTitulo(txtTitulo.getText().toString());
         livro.setEditora(txtEditora.getText().toString());
         
-        try {
-            int quantidade = Integer.parseInt(txtQuantidade.getText().toString());
-            livro.setQuantidade(quantidade);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
         return livro;
     }
-    
+
     @FXML
-    public void handlerSalvar(ActionEvent event){
+    public void handlerSalvar(ActionEvent event) {
         livrosDaoJPA = new LivrosDaoJPA();
         livro = getNewLivro();
         livrosDaoJPA.add(livro);
         btnSalvar.getScene().getWindow().hide();
     }
-    
+
     @FXML
-    public void handlerCancelar (ActionEvent event){
+    public void handlerCancelar(ActionEvent event) {
         btnCancelar.getScene().getWindow().hide();
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }

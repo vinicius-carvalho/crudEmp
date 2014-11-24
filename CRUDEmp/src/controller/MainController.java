@@ -22,7 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import javafx.stage.Stage;
 import model.db.dao.LivrosDaoJPA;
-import model.livros.Livro;
+import model.livro.Livro;
 
 /**
  *
@@ -31,7 +31,7 @@ import model.livros.Livro;
 public class MainController implements Initializable {
 
     private LivrosDaoJPA dao;
-    CadsController controller = new CadsController();
+    CadastroLivroController controller = new CadastroLivroController();
 
     @FXML
     private TableView<Livro> tbllivro;
@@ -64,10 +64,10 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void editPetMet(ActionEvent event) {
+    private void editLivro(ActionEvent event) {
 
         try {
-            Livro pet = tbllivro.getSelectionModel().getSelectedItem();
+            Livro livro = tbllivro.getSelectionModel().getSelectedItem();
 
             /*controller.getTxtflogin().setText(login);
              controller.getTxtfname().setText(name);
@@ -77,12 +77,12 @@ public class MainController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
 
-            CadsController controller = loader.getController();
-            controller.setPet(pet);
-            controller.getTxtfnome().setText(pet.getNome());
-            controller.getTxtfpeso().setText(String.valueOf(pet.getPeso()));
-            controller.getTxtfdata().setText(pet.getData());
-            controller.getTxtftipo().setText(pet.getTipo());
+            CadastroLivroController controller = loader.getController();
+            controller.setLivro(livro);
+            controller.getTxtAutor().setText(livro.getAutor());
+            controller.getTxtEditora().setText(String.valueOf(livro.getEditora()));
+            controller.getTxtTitulo().setText(livro.getTitulo());
+           
 
             stage.showAndWait();
 
@@ -94,11 +94,11 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void delPetMet() {
+    private void delLivro() {
 
-        Livro pet = tbllivro.getSelectionModel().getSelectedItem();
-
-        dao.remove(pet.getId());
+        Livro livro = tbllivro.getSelectionModel().getSelectedItem();
+        LivrosDaoJPA livrosDaoJPA = new LivrosDaoJPA();
+        livrosDaoJPA.remove(livro.getId());
         updateView();
 
     }
@@ -111,12 +111,12 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tblColTitulo.setCellValueFactory(new PropertyValueFactory<Livro, String>("nome"));
-        tblColAutor.setCellValueFactory(new PropertyValueFactory<Livro, String>("peso"));
-        tblColEditora.setCellValueFactory(new PropertyValueFactory<Livro, String>("data"));
-        tblColEmprestado.setCellValueFactory(new PropertyValueFactory<Livro, String>("tipo"));
+        tblColTitulo.setCellValueFactory(new PropertyValueFactory<Livro, String>("titulo"));
+        tblColAutor.setCellValueFactory(new PropertyValueFactory<Livro, String>("autor"));
+        tblColEditora.setCellValueFactory(new PropertyValueFactory<Livro, String>("editora"));
+        tblColEmprestado.setCellValueFactory(new PropertyValueFactory<Livro, String>("emprestado"));
 
-        dao = new PetDaoJDBC();
+        dao = new LivrosDaoJPA();
 
         updateView();
 
@@ -130,13 +130,13 @@ public class MainController implements Initializable {
     @FXML
     private void handleBtnAdd(ActionEvent actionevent) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CadastroPet.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CadastroLivro.fxml"));
         Parent root = (Parent) loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
 
-        CadsController controller = loader.getController();
+        CadastroLivroController controller = loader.getController();
 
         updateView();
 

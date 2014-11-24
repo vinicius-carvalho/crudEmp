@@ -3,12 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import model.db.dao.LivrosDaoJPA;
+import model.db.dao.UsuarioDaoJPA;
+import model.user.User;
 
 /**
  * FXML Controller class
@@ -17,12 +23,91 @@ import javafx.fxml.Initializable;
  */
 public class UsuariosController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private TextField txtNome, txtTelefone, txtDataNascimento, txtEndereco, txtEmail;
+    @FXML
+    private Button btnSalvar, btnCancelar;
+
+    private User user;
+
+    public TextField getTxtNome() {
+        return txtNome;
+    }
+
+    public void setTxtNome(TextField txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    public TextField getTxtTelefone() {
+        return txtTelefone;
+    }
+
+    public void setTxtTitulo(TextField txtTelefone) {
+        this.txtTelefone = txtTelefone;
+    }
+
+    public TextField getTxtDataNascimento() {
+        return txtDataNascimento;
+    }
+
+    public void setTxtEditora(TextField txtDataNascimento) {
+        this.txtDataNascimento = txtDataNascimento;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setLivro(User user) {
+        this.user = user;
+    }
+    
+
+    public TextField getTxtEndereco() {
+        return txtEndereco;
+    }
+
+    public void setTxtEndereco(TextField txtEndereco) {
+        this.txtEndereco = txtEndereco;
+    }
+
+    public TextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public void setTxtEmail(TextField txtEmail) {
+        this.txtEmail = txtEmail;
+    }
+
+    private LivrosDaoJPA livrosDaoJPA;
+
+    public User getNewUser() {
+        user = new User();
+        user.setNome(txtNome.getText().toString());
+        user.setTelefone(txtTelefone.getText().toString());
+        user.setData(txtDataNascimento.getText().toString());
+        user.setEmail(txtEmail.getText().toString());
+        user.setEndereco(txtEndereco.getText().toString());
+
+        return user;
+    }
+
+    @FXML
+    public void handlerSalvar(ActionEvent event) {
+         UsuarioDaoJPA userDaoJPA = new UsuarioDaoJPA();
+        user = getNewUser();
+        userDaoJPA.add(user);
+        btnSalvar.getScene().getWindow().hide();
+    }
+
+    @FXML
+    public void handlerCancelar(ActionEvent event) {
+        btnCancelar.getScene().getWindow().hide();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }
