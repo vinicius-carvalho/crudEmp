@@ -15,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import model.db.dao.EmprestimoDaoJPA;
+import model.emprestimo.Emprestimo;
 
 /**
  * FXML Controller class
@@ -34,7 +36,7 @@ public class CadastroEmprestimoController implements Initializable {
     Label lblErro;
     
     private Emprestimo emprestimo;
-    private EmprestimoDaoJPA emprestimoDaoJPA
+    private EmprestimoDaoJPA emprestimoDaoJPA;
     
     public Emprestimo getNewEmprestimo(){
         try {
@@ -66,7 +68,7 @@ public class CadastroEmprestimoController implements Initializable {
         emprestimoDaoJPA = new EmprestimoDaoJPA();
         Emprestimo emprestimo = getNewEmprestimo();
         emprestimoDaoJPA.add(emprestimo);
-        btnSalvar.getScene().getWindow().hide();;
+        btnSalvar.getScene().getWindow().hide();
     }
     
     @FXML

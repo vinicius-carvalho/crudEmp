@@ -11,23 +11,23 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-import model.livro.Livro;
+import model.emprestimo.Emprestimo;
 import model.user.User;
 
 /**
  *
- * @author Joao Carloss
+ * @author Vinicius
  */
-public class UsuarioDaoJPA implements UsuarioDAO{
+public class EmprestimoDaoJPA implements EmprestimoDAO{
     
     private EntityManagerFactory factory = Persistence.createEntityManagerFactory("crudemp");
-
+    
     @Override
-    public boolean add(User user) {
+    public boolean add(Emprestimo emp) {
         if(factory.isOpen()){
             EntityManager em = factory.createEntityManager();
              em.getTransaction().begin();
-            em.persist(user);
+            em.persist(emp);
             em.getTransaction().commit();
             em.close();
             return true;
@@ -37,16 +37,16 @@ public class UsuarioDaoJPA implements UsuarioDAO{
     }
 
     @Override
-    public List<User> list() {
+    public List<Emprestimo> list() {
         EntityManager em =  factory.createEntityManager();
-        final String jpql = "SELECT * FROM USER USER";
-        TypedQuery<User> query = em.createQuery(jpql, User.class);
+        final String jpql = "SELECT * FROM emp Emprestimo";
+        TypedQuery<Emprestimo> query = em.createQuery(jpql, Emprestimo.class);
         em.close();
         return query.getResultList();
     }
 
     @Override
-    public User find(long id) {
+    public Emprestimo find(long id) {
         return null;
     }
 
@@ -54,8 +54,8 @@ public class UsuarioDaoJPA implements UsuarioDAO{
     public int remove(long id) {
         EntityManager em = factory.createEntityManager();
         em.getTransaction().begin();
-        User user = em.find(User.class, id);
-        em.remove(user);
+        Emprestimo emp = em.find(Emprestimo.class, id);
+        em.remove(emp);
         em.getTransaction().commit();
         em.close();
         
@@ -64,15 +64,17 @@ public class UsuarioDaoJPA implements UsuarioDAO{
     }
 
     @Override
-    public int update(User user) {
+    public int update(Emprestimo emp) {
         EntityManager em = factory.createEntityManager();
         em.getTransaction().begin();
-        em.merge(user);
+        em.merge(emp);
         em.getTransaction().commit();
         em.close();
         return 1;
     }
-    
-    
+
+   
+
+   
     
 }

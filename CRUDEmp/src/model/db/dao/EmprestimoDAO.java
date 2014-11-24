@@ -3,27 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model.db.dao;
 
 import java.util.List;
+import model.emprestimo.Emprestimo;
 
 import model.user.User;
 
 /**
  *
- * @author Joao Carloss
+ * @author Vinicius
  */
-public interface UsuarioDAO {
-    
-      boolean add(User User);
+public interface EmprestimoDAO {
 
-	List<User> list();
+    boolean add(Emprestimo emp);
 
-	User find(long id);
+    List<Emprestimo> list();
 
-	int remove(long id);
+    Emprestimo find(long id);
 
-	int update(User user);
-    
+    int remove(long id);
+
+    int update(Emprestimo emp);
+
 }

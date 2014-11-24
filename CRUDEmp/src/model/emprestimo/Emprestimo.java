@@ -34,10 +34,33 @@ public class Emprestimo {
      private List<Livro> livrosEmprestimo;
      @Temporal(TemporalType.DATE)
     private Date dataEntrega;
+     @Temporal(TemporalType.DATE)
+     private Date DataEmprestimo;
+     int CodLivro;
+     int CodUser;
 
     public Emprestimo() {
     }
 
+    public int getCodLivro() {
+        return CodLivro;
+    }
+
+    public void setCodLivro(int CodLivro) {
+        this.CodLivro = CodLivro;
+    }
+
+    public int getCodUser() {
+        return CodUser;
+    }
+
+    public void setCodUser(int CodUser) {
+        this.CodUser = CodUser;
+    }
+
+
+    
+    
     public long getId() {
         return id;
     }
@@ -45,6 +68,15 @@ public class Emprestimo {
     public void setId(long id) {
         this.id = id;
     }
+
+    public Date getDataEmprestimo() {
+        return DataEmprestimo;
+    }
+
+    public void setDataEmprestimo(Date DataEmprestimo) {
+        this.DataEmprestimo = DataEmprestimo;
+    }
+    
 
     public User getOwner() {
         return owner;
