@@ -108,6 +108,7 @@ public class MainControllerEmp implements Initializable {
             Parent root = (Parent) loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            stage.showAndWait();
             
 
     }
@@ -136,6 +137,7 @@ public class MainControllerEmp implements Initializable {
         
 
     }
+    
 
     @FXML
     private void handleBtnAdd(ActionEvent actionevent) throws IOException {

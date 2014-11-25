@@ -15,12 +15,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.db.dao.UsuarioDaoJPA;
-import model.livro.Livro;
 import model.user.User;
 
 /**
@@ -31,6 +31,8 @@ import model.user.User;
 public class UsuariosController implements Initializable {
 
     UsuarioDaoJPA dao = new UsuarioDaoJPA();
+    @FXML
+    private Button fechar;
 
     @FXML
     private TableView<User> tbluser;
@@ -100,6 +102,11 @@ public class UsuariosController implements Initializable {
         updateView();
 
     }
+    
+     @FXML
+    public void fechar(ActionEvent event) {
+        fechar.getScene().getWindow().hide();
+    }
 
     private void updateView() {
         tbluser.setItems(FXCollections.observableArrayList(dao.list()));
@@ -109,10 +116,10 @@ public class UsuariosController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         tblColNome.setCellValueFactory(new PropertyValueFactory<User, String>("nome"));
-        tblColEndereco.setCellValueFactory(new PropertyValueFactory<User, String>("endereco"));
-        tblColEmail.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
         tblColTelefone.setCellValueFactory(new PropertyValueFactory<User, String>("telefone"));
         tblColData.setCellValueFactory(new PropertyValueFactory<User, String>("data"));
+        tblColEndereco.setCellValueFactory(new PropertyValueFactory<User, String>("endereco"));
+        tblColEmail.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
 
         dao = new UsuarioDaoJPA();
 

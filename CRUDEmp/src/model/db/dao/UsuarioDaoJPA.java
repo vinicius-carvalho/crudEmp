@@ -18,9 +18,9 @@ import model.user.User;
  *
  * @author Joao Carloss
  */
-public class UsuarioDaoJPA implements UsuarioDAO{
+public class UsuarioDaoJPA extends factory.DaoFactory implements UsuarioDAO{
     
-    private EntityManagerFactory factory = Persistence.createEntityManagerFactory("crudemp");
+   
 
     @Override
     public boolean add(User user) {
@@ -39,10 +39,11 @@ public class UsuarioDaoJPA implements UsuarioDAO{
     @Override
     public List<User> list() {
         EntityManager em =  factory.createEntityManager();
-        final String jpql = "SELECT * FROM USER USER";
+        final String jpql = "SELECT user FROM User user";
         TypedQuery<User> query = em.createQuery(jpql, User.class);
+        List<User> list = query.getResultList();
         em.close();
-        return query.getResultList();
+        return list;
     }
 
     @Override

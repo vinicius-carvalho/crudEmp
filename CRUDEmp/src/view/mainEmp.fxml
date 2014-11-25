@@ -25,7 +25,7 @@
                 <Button fx:id="delLivro" layoutX="418.0" layoutY="128.0" mnemonicParsing="false" onAction="#delLivro" text="Deletar livro" />
                 <Button fx:id="fechar" layoutX="518.0" layoutY="161.0" mnemonicParsing="false" onAction="#fecharMet" text="Fechar" />
             <Button layoutX="25.0" layoutY="14.0" mnemonicParsing="false" text="Lista de emprestimos" />
-            <Button fx:id="btnlistaUsuarios" layoutX="160.0" layoutY="128.0" mnemonicParsing="false" onAction="#listarUsuario" text="Usuários" />
+            <Button fx:id="btnlistaUsuarios" layoutX="160.0" layoutY="128.0" mnemonicParsing="false" onAction="#listaUsuario" text="Usuários" />
             </children>
         </Pane>
    </left>
