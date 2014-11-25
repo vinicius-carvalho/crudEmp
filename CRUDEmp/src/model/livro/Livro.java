@@ -2,14 +2,9 @@ package model.livro;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import model.user.User;
-
-
 
 @Entity
 @Table(name = "Livro")
@@ -18,13 +13,9 @@ public class Livro implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "livro")
-    private User owner; //Irá ter referência para o User ?
     private String autor;
     private String titulo;
     private String editora;
-    
-
 
     public Long getId() {
         return id;
@@ -34,13 +25,7 @@ public class Livro implements Serializable {
         this.id = id;
     }
 
-    public User getOwner() {
-        return owner;
-    }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
 
     public String getAutor() {
         return autor;
@@ -65,11 +50,5 @@ public class Livro implements Serializable {
     public void setEditora(String editora) {
         this.editora = editora;
     }
-
-   
-    
-    
-    
-    
 
 }

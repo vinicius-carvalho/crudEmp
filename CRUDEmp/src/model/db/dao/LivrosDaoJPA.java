@@ -1,17 +1,15 @@
 package model.db.dao;
 
+import factory.DaoFactory;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import model.db.connection.ConnectionFactory;
 import model.livro.Livro;
 
-public class LivrosDaoJPA implements LivrosDao {
+public class LivrosDaoJPA  extends DaoFactory implements LivrosDao {
 
-    private EntityManagerFactory factory = Persistence.createEntityManagerFactory("crudemp");
+    
 
     public boolean add(Livro livro) {
         if (factory.isOpen()) {
@@ -29,11 +27,13 @@ public class LivrosDaoJPA implements LivrosDao {
     public List<Livro> list() {
 
         EntityManager em = factory.createEntityManager();
-        String jpql = "SELECT livros FROM Livros livros";
+        String jpql = "SELECT livro FROM Livro livro";
         TypedQuery<Livro> query = em.createQuery(jpql, Livro.class);
+        List<Livro> livros = query.getResultList();
         em.close();
+        System.out.println(livros.toString());
 
-        return query.getResultList();
+        return livros;
 
     }
 

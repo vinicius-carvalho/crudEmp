@@ -5,15 +5,22 @@
  */
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import model.db.dao.LivrosDaoJPA;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import model.db.dao.UsuarioDaoJPA;
+import model.livro.Livro;
 import model.user.User;
 
 /**
@@ -23,91 +30,93 @@ import model.user.User;
  */
 public class UsuariosController implements Initializable {
 
+    UsuarioDaoJPA dao = new UsuarioDaoJPA();
+
     @FXML
-    private TextField txtNome, txtTelefone, txtDataNascimento, txtEndereco, txtEmail;
+    private TableView<User> tbluser;
+
     @FXML
-    private Button btnSalvar, btnCancelar;
+    private TableColumn<User, String> tblColNome;
 
-    private User user;
+    @FXML
+    private TableColumn<User, String> tblColTelefone;
 
-    public TextField getTxtNome() {
-        return txtNome;
-    }
+    @FXML
+    private TableColumn<User, String> tblColData;
 
-    public void setTxtNome(TextField txtNome) {
-        this.txtNome = txtNome;
-    }
+    @FXML
+    private TableColumn<User, String> tblColEndereco;
 
-    public TextField getTxtTelefone() {
-        return txtTelefone;
-    }
+    @FXML
+    private TableColumn<User, String> tblColEmail;
 
-    public void setTxtTitulo(TextField txtTelefone) {
-        this.txtTelefone = txtTelefone;
-    }
+    @FXML
+    private void cadUsuario(ActionEvent event) throws IOException {
 
-    public TextField getTxtDataNascimento() {
-        return txtDataNascimento;
-    }
+        Parent root = FXMLLoader.load(getClass().getResource("/view/CadastroUsuario.fxml"));
 
-    public void setTxtEditora(TextField txtDataNascimento) {
-        this.txtDataNascimento = txtDataNascimento;
-    }
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
 
-    public User getUser() {
-        return user;
-    }
+        stage.showAndWait();
+        updateView();
 
-    public void setLivro(User user) {
-        this.user = user;
-    }
-    
-
-    public TextField getTxtEndereco() {
-        return txtEndereco;
-    }
-
-    public void setTxtEndereco(TextField txtEndereco) {
-        this.txtEndereco = txtEndereco;
-    }
-
-    public TextField getTxtEmail() {
-        return txtEmail;
-    }
-
-    public void setTxtEmail(TextField txtEmail) {
-        this.txtEmail = txtEmail;
-    }
-
-    private LivrosDaoJPA livrosDaoJPA;
-
-    public User getNewUser() {
-        user = new User();
-        user.setNome(txtNome.getText().toString());
-        user.setTelefone(txtTelefone.getText().toString());
-        user.setData(txtDataNascimento.getText().toString());
-        user.setEmail(txtEmail.getText().toString());
-        user.setEndereco(txtEndereco.getText().toString());
-
-        return user;
     }
 
     @FXML
-    public void handlerSalvar(ActionEvent event) {
-         UsuarioDaoJPA userDaoJPA = new UsuarioDaoJPA();
-        user = getNewUser();
-        userDaoJPA.add(user);
-        btnSalvar.getScene().getWindow().hide();
+    private void editUsuario(ActionEvent event) {
+
+        try {
+            User user = tbluser.getSelectionModel().getSelectedItem();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CadastroUsuario.fxml"));
+            Parent root = (Parent) loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+
+            CadastroUsuariosController controller = loader.getController();
+
+            controller.setUser(user);
+            controller.getTxtNome().setText(user.getNome());
+            controller.getTxtTelefone().setText(String.valueOf(user.getTelefone()));
+            controller.getTxtEmail().setText(user.getEmail());
+            controller.getTxtEndereco().setText(user.getEndereco());
+            controller.getTxtDataNascimento().setText(user.getData());
+
+            stage.showAndWait();
+
+            updateView();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    public void handlerCancelar(ActionEvent event) {
-        btnCancelar.getScene().getWindow().hide();
+    private void delUsuario() {
+
+        User user = tbluser.getSelectionModel().getSelectedItem();
+        dao.remove(user.getId());
+        updateView();
+
+    }
+
+    private void updateView() {
+        tbluser.setItems(FXCollections.observableArrayList(dao.list()));
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        tblColNome.setCellValueFactory(new PropertyValueFactory<User, String>("nome"));
+        tblColEndereco.setCellValueFactory(new PropertyValueFactory<User, String>("endereco"));
+        tblColEmail.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
+        tblColTelefone.setCellValueFactory(new PropertyValueFactory<User, String>("telefone"));
+        tblColData.setCellValueFactory(new PropertyValueFactory<User, String>("data"));
+
+        dao = new UsuarioDaoJPA();
+
+        updateView();
     }
 
 }

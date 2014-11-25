@@ -28,7 +28,7 @@ import model.livro.Livro;
  *
  * @author Vinicius
  */
-public class MainController implements Initializable {
+public class MainControllerEmp implements Initializable {
 
     private LivrosDaoJPA dao;
     CadastroLivroController controller = new CadastroLivroController();
@@ -49,18 +49,20 @@ public class MainController implements Initializable {
     private TableColumn<Livro, String> tblColEmprestado;
 
     @FXML
-    private void cadLivro(ActionEvent event) {
+    private void cadLivro(ActionEvent event)throws IOException {
 
-        try {
+       
             Parent root = FXMLLoader.load(getClass().getResource("/view/CadastroLivro.fxml"));
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            
             stage.showAndWait();
-        } catch (Exception e) {
+            updateView();
+        
 
-        }
-
+      
+        
     }
 
     @FXML
@@ -69,9 +71,7 @@ public class MainController implements Initializable {
         try {
             Livro livro = tbllivro.getSelectionModel().getSelectedItem();
 
-            /*controller.getTxtflogin().setText(login);
-             controller.getTxtfname().setText(name);
-             controller.getTxtfphone().setText(phone);*/
+          
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CadastroLivro.fxml"));
             Parent root = (Parent) loader.load();
             Stage stage = new Stage();
@@ -82,7 +82,6 @@ public class MainController implements Initializable {
             controller.getTxtAutor().setText(livro.getAutor());
             controller.getTxtEditora().setText(String.valueOf(livro.getEditora()));
             controller.getTxtTitulo().setText(livro.getTitulo());
-           
 
             stage.showAndWait();
 
@@ -97,9 +96,19 @@ public class MainController implements Initializable {
     private void delLivro() {
 
         Livro livro = tbllivro.getSelectionModel().getSelectedItem();
-        LivrosDaoJPA livrosDaoJPA = new LivrosDaoJPA();
-        livrosDaoJPA.remove(livro.getId());
+        dao.remove(livro.getId());
         updateView();
+
+    }
+    
+      @FXML
+    private void listaUsuario() throws IOException {
+        
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UsuariosCadastrados.fxml"));
+            Parent root = (Parent) loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            
 
     }
 
@@ -124,6 +133,7 @@ public class MainController implements Initializable {
 
     private void updateView() {
         tbllivro.setItems(FXCollections.observableArrayList(dao.list()));
+        
 
     }
 
@@ -135,8 +145,6 @@ public class MainController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
-
-        CadastroLivroController controller = loader.getController();
 
         updateView();
 

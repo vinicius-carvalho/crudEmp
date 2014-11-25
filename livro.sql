@@ -1,6 +1,9 @@
-CREATE  TABLE `fatec`.`LIVRO` (
+CREATE  TABLE `crudemp`.`LIVRO` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `AUTOR` VARCHAR(45) NULL ,
   `TITULO` VARCHAR(45) NULL ,
   `EDITORA` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) );
+
+select * from livro;
+

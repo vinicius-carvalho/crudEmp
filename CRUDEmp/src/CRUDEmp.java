@@ -1,4 +1,4 @@
-package main;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,7 +22,7 @@ public class CRUDEmp extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/mainEmp.fxml"));
         
         Scene scene = new Scene(root);
         stage.setScene(scene);
