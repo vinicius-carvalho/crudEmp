@@ -13,15 +13,15 @@
          <center>
             <Pane prefHeight="377.0" prefWidth="834.0" BorderPane.alignment="CENTER">
                <children>
-                  <TableView layoutX="27.0" layoutY="2.0" prefHeight="423.0" prefWidth="789.0">
+                  <TableView fx:id="tblemp" layoutX="27.0" layoutY="2.0" prefHeight="423.0" prefWidth="789.0">
                     <columns>
-                      <TableColumn prefWidth="138.0" text="Nome" />
-                      <TableColumn prefWidth="93.0" text="Livro" />
-                        <TableColumn prefWidth="124.66667175292969" text="Dia do Emprestimo" />
-                        <TableColumn minWidth="3.0" prefWidth="114.66665649414062" text="Data de entrega" />
-                        <TableColumn prefWidth="99.0" text="Telefone" />
-                        <TableColumn prefWidth="90.33331298828125" text="Endereço" />
-                        <TableColumn prefWidth="131.3333740234375" text="E-mail" />
+                      <TableColumn fx:id="tblColNome" prefWidth="138.0" text="Nome" />
+                      <TableColumn fx:id="tblColLivro" prefWidth="93.0" text="Livro" />
+                        <TableColumn fx:id="tblColDEmp" prefWidth="124.66667175292969" text="Dia do Emprestimo" />
+                        <TableColumn fx:id="tblColDEntrega" minWidth="3.0" prefWidth="114.66665649414062" text="Data de entrega" />
+                        <TableColumn fx:id="tblColTelefone" prefWidth="99.0" text="Telefone" />
+                        <TableColumn fx:id="tblColEndereco" prefWidth="90.33331298828125" text="Endereço" />
+                        <TableColumn fx:id="tblColEmail" prefWidth="131.3333740234375" text="E-mail" />
                     </columns>
                   </TableView>
                </children>
@@ -30,10 +30,10 @@
          <bottom>
             <Pane prefHeight="97.0" prefWidth="834.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="handleBtnAdd" fx:id="handleBtnAdd" layoutX="50.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleBtnAdd" text="Cadastrar Emprestimo" />
-                  <Button fx:id="edtUser" layoutX="226.0" layoutY="9.0" mnemonicParsing="false" onAction="#editPetMet" text="Editar" />
-                  <Button fx:id="delPet" layoutX="302.0" layoutY="7.0" mnemonicParsing="false" onAction="#delPetMet" text="Finalizar emprestimo" />
-                  <Button fx:id="fechar" layoutX="464.0" layoutY="9.0" mnemonicParsing="false" onAction="#fecharMet" text="Fechar" />
+                  <Button id="handleBtnAdd" fx:id="handleBtnAdd" layoutX="50.0" layoutY="7.0" mnemonicParsing="false" onAction="#cadEmp" text="Cadastrar Emprestimo" />
+                  <Button fx:id="edtUser" layoutX="226.0" layoutY="9.0" mnemonicParsing="false" onAction="#editEmp" text="Editar" />
+                  <Button fx:id="delPet" layoutX="302.0" layoutY="7.0" mnemonicParsing="false" onAction="#delEmp" text="Finalizar emprestimo" />
+                  <Button fx:id="fechar" layoutX="464.0" layoutY="9.0" mnemonicParsing="false" onAction="#fechar" text="Fechar" />
                </children></Pane>
          </bottom>
          <top>

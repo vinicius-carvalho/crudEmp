@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package model.emprestimo;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -17,19 +14,18 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import model.livro.Livro;
-import model.user.User;
 
 /**
  *
  * @author Vinicius
  */
 @Entity @Table(name="Emprestimo")
-public class Emprestimo {
+public class Emprestimo implements Serializable {
     
      @Id @GeneratedValue
     private long id;
      @ManyToOne
-    private User owner;
+    private model.user.User owner;
      @OneToMany
      private List<Livro> livrosEmprestimo;
      @Temporal(TemporalType.DATE)
@@ -78,11 +74,11 @@ public class Emprestimo {
     }
     
 
-    public User getOwner() {
+    public model.user.User getOwner() {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(model.user.User owner) {
         this.owner = owner;
     }
 

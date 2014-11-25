@@ -75,6 +75,46 @@ public class CadastroEmprestimoController implements Initializable {
     public void handlerCancelar (ActionEvent event){
         btnCancelar.getScene().getWindow().hide();
     }
+
+    public TextField getTxtCodUser() {
+        return txtCodUser;
+    }
+
+    public void setTxtCodUser(TextField txtCodUser) {
+        this.txtCodUser = txtCodUser;
+    }
+
+    public TextField getTxtCodLivro() {
+        return txtCodLivro;
+    }
+
+    public void setTxtCodLivro(TextField txtCodLivro) {
+        this.txtCodLivro = txtCodLivro;
+    }
+
+    public TextField getTxtDataEmprestimo() {
+        return txtDataEmprestimo;
+    }
+
+    public void setTxtDataEmprestimo(TextField txtDataEmprestimo) {
+        this.txtDataEmprestimo = txtDataEmprestimo;
+    }
+
+    public TextField getTxtDataEntrega() {
+        return txtDataEntrega;
+    }
+
+    public void setTxtDataEntrega(TextField txtDataEntrega) {
+        this.txtDataEntrega = txtDataEntrega;
+    }
+
+    public Emprestimo getEmprestimo() {
+        return emprestimo;
+    }
+
+    public void setEmprestimo(Emprestimo emprestimo) {
+        this.emprestimo = emprestimo;
+    }
     
     
     @Override

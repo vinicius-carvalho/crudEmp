@@ -6,9 +6,9 @@
 package model.db.dao;
 
 import java.util.List;
-import model.emprestimo.Emprestimo;
 
-import model.user.User;
+
+import model.emprestimo.Emprestimo;
 
 /**
  *

@@ -112,6 +112,21 @@ public class MainControllerEmp implements Initializable {
             
 
     }
+    
+        @FXML
+    private void  listaEmprestimo() throws IOException {
+        
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/LivrosEmprestados.fxml"));
+            Parent root = (Parent) loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+            
+
+    }
+    
+    
+    
 
     @FXML
     private void fecharMet(ActionEvent event) {

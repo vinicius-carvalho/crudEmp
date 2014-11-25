@@ -12,7 +12,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import model.emprestimo.Emprestimo;
-import model.user.User;
+
 
 /**
  *
@@ -39,7 +39,7 @@ public class EmprestimoDaoJPA implements EmprestimoDAO{
     @Override
     public List<Emprestimo> list() {
         EntityManager em =  factory.createEntityManager();
-        final String jpql = "SELECT * FROM emp Emprestimo";
+        final String jpql = "SELECT emp FROM emp Emprestimo";
         TypedQuery<Emprestimo> query = em.createQuery(jpql, Emprestimo.class);
         em.close();
         return query.getResultList();

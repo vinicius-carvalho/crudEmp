@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ *
+ * @author Vinicius
+ */
 @Entity
 @Table(name = "Livro")
 public class Livro implements Serializable {
