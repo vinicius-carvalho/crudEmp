@@ -7,14 +7,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="469.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UsuariosController">
+<AnchorPane id="AnchorPane" prefHeight="522.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UsuariosController">
    <children>
       <BorderPane layoutY="-2.0" prefHeight="400.0" prefWidth="602.0">
          <center>
             <Pane prefHeight="378.0" prefWidth="646.0" BorderPane.alignment="CENTER">
                <children>
-                  <TableView fx:id="tbluser" layoutX="55.0" layoutY="26.0" prefHeight="171.0" prefWidth="693.0">
+                  <TableView fx:id="tbluser" layoutX="17.0" layoutY="23.0" prefHeight="239.0" prefWidth="846.0">
                     <columns>
+                        <TableColumn fx:id="tblColID" prefWidth="152.6666717529297" text="ID" />
                       <TableColumn fx:id="tblColNome" prefWidth="152.6666717529297" text="Nome" />
                       <TableColumn fx:id="tblColTelefone" prefWidth="123.33332824707031" text="Telefone" />
                         <TableColumn fx:id="tblColData" prefWidth="137.33331298828125" text="Data de Nascimento" />
@@ -28,7 +29,7 @@
          <top>
             <Pane prefHeight="52.0" prefWidth="602.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="282.0" layoutY="18.0" text="Lista  de Usuários">
+                  <Label layoutX="356.0" layoutY="18.0" text="Lista  de Usuários">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -37,12 +38,14 @@
             </Pane>
          </top>
          <bottom>
-            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="edtUser" layoutX="435.0" layoutY="145.0" mnemonicParsing="false" onAction="#editUsuario" text="Editar" />
+                  <Button id="handleBtnAdd" fx:id="btncadastrarUsuario" layoutX="284.0" layoutY="146.0" mnemonicParsing="false" onAction="#cadUsuario" text="Cadastrar Usuário" />
+                  <Button fx:id="delUser" layoutX="508.0" layoutY="145.0" mnemonicParsing="false" onAction="#delUsuario" text="Deletar Usuário" />
+               </children></Pane>
          </bottom>
       </BorderPane>
-      <Button fx:id="fechar" layoutX="688.0" layoutY="414.0" mnemonicParsing="false" onAction="#fechar" text="Fechar" />
-      <Button fx:id="edtUser" layoutX="378.0" layoutY="401.0" mnemonicParsing="false" onAction="#editUsuario" text="Editar" />
-      <Button id="handleBtnAdd" fx:id="btncadastrarUsuario" layoutX="227.0" layoutY="402.0" mnemonicParsing="false" onAction="#cadUsuario" text="Cadastrar Usuário" />
-      <Button fx:id="delUser" layoutX="451.0" layoutY="401.0" mnemonicParsing="false" onAction="#delUsuario" text="Deletar Usuário" />
+      <Button fx:id="fechar" layoutX="763.0" layoutY="452.0" mnemonicParsing="false" onAction="#fechar" text="Fechar" />
    </children>
 </AnchorPane>

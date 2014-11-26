@@ -38,6 +38,9 @@ public class UsuariosController implements Initializable {
     private TableView<User> tbluser;
 
     @FXML
+    private TableColumn<User, String> tblColID;
+
+    @FXML
     private TableColumn<User, String> tblColNome;
 
     @FXML
@@ -102,8 +105,8 @@ public class UsuariosController implements Initializable {
         updateView();
 
     }
-    
-     @FXML
+
+    @FXML
     public void fechar(ActionEvent event) {
         fechar.getScene().getWindow().hide();
     }
@@ -115,6 +118,8 @@ public class UsuariosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        tblColID.setCellValueFactory(new PropertyValueFactory<User, String>("id"));
         tblColNome.setCellValueFactory(new PropertyValueFactory<User, String>("nome"));
         tblColTelefone.setCellValueFactory(new PropertyValueFactory<User, String>("telefone"));
         tblColData.setCellValueFactory(new PropertyValueFactory<User, String>("data"));

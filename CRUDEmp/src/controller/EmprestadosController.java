@@ -21,7 +21,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.db.dao.EmprestimoDaoJPA;
-
 import model.emprestimo.Emprestimo;
 
 /**
@@ -123,12 +122,16 @@ public class EmprestadosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         tblColNome.setCellValueFactory(new PropertyValueFactory<Emprestimo, String>("nome"));
-        tblColLivro.setCellValueFactory(new PropertyValueFactory<Emprestimo, String>("telefone"));
-        tblColDEmp.setCellValueFactory(new PropertyValueFactory<Emprestimo, String>("data"));
-        tblColDentrega.setCellValueFactory(new PropertyValueFactory<Emprestimo, String>("endereco"));
-        tblColTelefone.setCellValueFactory(new PropertyValueFactory<Emprestimo, String>("email"));
-
+        tblColLivro.setCellValueFactory(new PropertyValueFactory<Emprestimo, String>("livro"));
+        tblColDEmp.setCellValueFactory(new PropertyValueFactory<Emprestimo, String>("dataEmprestimo"));        
+        tblColDentrega.setCellValueFactory(new PropertyValueFactory<Emprestimo, String>("dataEntrega"));        
+        tblColTelefone.setCellValueFactory(new PropertyValueFactory<Emprestimo, String>("telefone"));
+        tblColEndereco.setCellValueFactory(new PropertyValueFactory<Emprestimo, String>("endereco"));        
+        tblColEmail.setCellValueFactory(new PropertyValueFactory<Emprestimo, String>("email"));        
+                
+                
         dao = new EmprestimoDaoJPA();
 
         updateView();

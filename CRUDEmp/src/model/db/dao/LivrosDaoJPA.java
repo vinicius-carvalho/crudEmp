@@ -7,9 +7,7 @@ import javax.persistence.TypedQuery;
 
 import model.livro.Livro;
 
-public class LivrosDaoJPA  extends DaoFactory implements LivrosDao {
-
-    
+public class LivrosDaoJPA extends DaoFactory implements LivrosDao {
 
     public boolean add(Livro livro) {
         if (factory.isOpen()) {

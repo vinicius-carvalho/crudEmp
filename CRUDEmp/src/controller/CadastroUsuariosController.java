@@ -22,7 +22,8 @@ import model.user.User;
  */
 public class CadastroUsuariosController implements Initializable {
  
-    UsuarioDaoJPA dao = new UsuarioDaoJPA();
+    private UsuarioDaoJPA dao = new UsuarioDaoJPA();
+    private User user;
 
     
     
@@ -31,7 +32,7 @@ public class CadastroUsuariosController implements Initializable {
     @FXML
     private Button btnSalvar, btnCancelar;
 
-    private User user;
+    
 
     public TextField getTxtNome() {
         return txtNome;
@@ -85,7 +86,7 @@ public class CadastroUsuariosController implements Initializable {
 
 
     public User getNewUser() {
-        user = new User();
+        
         user.setNome(txtNome.getText().toString());
         user.setTelefone(txtTelefone.getText().toString());
         user.setData(txtDataNascimento.getText().toString());
@@ -97,10 +98,27 @@ public class CadastroUsuariosController implements Initializable {
 
     @FXML
     public void handlerSalvar(ActionEvent event) {
-         UsuarioDaoJPA userDaoJPA = new UsuarioDaoJPA();
-        user = getNewUser();
-        userDaoJPA.add(user);
-        btnSalvar.getScene().getWindow().hide();
+        
+        
+          boolean isEdit = user != null;
+        if (!isEdit) {
+            user = new User();
+        }
+        
+           user=getNewUser();
+            
+
+            if (isEdit) {
+
+                dao.update(user);
+                btnSalvar.getScene().getWindow().hide();
+
+            } else {
+
+                dao.add(user);
+                btnSalvar.getScene().getWindow().hide();
+            }
+    
     }
 
       @FXML

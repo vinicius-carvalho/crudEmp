@@ -3,59 +3,117 @@
 package model.emprestimo;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import model.livro.Livro;
+import model.user.User;
+import org.hibernate.annotations.CollectionId;
 
 /**
  *
  * @author Vinicius
  */
-@Entity @Table(name="Emprestimo")
+@Entity @Table(name="emprestimo")
 public class Emprestimo implements Serializable {
     
-     @Id @GeneratedValue
+    @Id @GeneratedValue
     private long id;
-     @ManyToOne
-    private model.user.User owner;
-     @OneToMany
-     private List<Livro> livrosEmprestimo;
-     @Temporal(TemporalType.DATE)
-    private Date dataEntrega;
-     @Temporal(TemporalType.DATE)
-     private Date DataEmprestimo;
-     int CodLivro;
-     int CodUser;
+    
+    @ManyToOne
+    private User owner;
+    
+    @OneToMany
+    private List<Livro> livrosEmprestimo;
+    
+    @Basic
+    private String nome;
+    private String livro;
+    private String dataEntrega;  
+    private String dataEmprestimo;
+    private String telefone;
+    private String endereco;
+    private String email;
+    
+    //@JoinColumn(name="livro", referencedColumnName = "id")
+    //@ManyToOne
+    
+    @CollectionTable(name="livro", joinColumns = @JoinColumn(name = "id"))
+    private long codLivro;
+    
+    //@JoinColumn(name="user", referencedColumnName = "id")
+    //@ManyToOne
+    
+    @CollectionTable(name="user", joinColumns = @JoinColumn(name = "id"))
+    private long codUser;
 
     public Emprestimo() {
     }
 
-    public int getCodLivro() {
-        return CodLivro;
+    public long getCodLivro() {
+        return codLivro;
     }
 
-    public void setCodLivro(int CodLivro) {
-        this.CodLivro = CodLivro;
+    public void setCodLivro(long CodLivro) {
+        this.codLivro = CodLivro;
     }
 
-    public int getCodUser() {
-        return CodUser;
+    public long getCodUser() {
+        return codUser;
     }
 
-    public void setCodUser(int CodUser) {
-        this.CodUser = CodUser;
+    public void setCodUser(long CodUser) {
+        this.codUser = CodUser;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
-    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getLivro() {
+        return livro;
+    }
+
+    public void setLivro(String livro) {
+        this.livro = livro;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
     
     public long getId() {
         return id;
@@ -65,12 +123,12 @@ public class Emprestimo implements Serializable {
         this.id = id;
     }
 
-    public Date getDataEmprestimo() {
-        return DataEmprestimo;
+    public String getDataEmprestimo() {
+        return dataEmprestimo;
     }
 
-    public void setDataEmprestimo(Date DataEmprestimo) {
-        this.DataEmprestimo = DataEmprestimo;
+    public void setDataEmprestimo(String DataEmprestimo) {
+        this.dataEmprestimo = DataEmprestimo;
     }
     
 
@@ -90,11 +148,11 @@ public class Emprestimo implements Serializable {
         this.livrosEmprestimo = livrosEmprestimo;
     }
 
-    public Date getDataEntrega() {
+    public String getDataEntrega() {
         return dataEntrega;
     }
 
-    public void setDataEntrega(Date dataEntrega) {
+    public void setDataEntrega(String dataEntrega) {
         this.dataEntrega = dataEntrega;
     }
      

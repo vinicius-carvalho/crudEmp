@@ -22,12 +22,15 @@ import model.livro.Livro;
  */
 public class CadastroLivroController implements Initializable {
 
+    private Livro livro;
+    private LivrosDaoJPA dao = new LivrosDaoJPA();
+
     @FXML
     private TextField txtAutor, txtTitulo, txtEditora;
     @FXML
     private Button btnSalvar, btnCancelar;
 
-    private Livro livro;
+    
 
     public TextField getTxtAutor() {
         return txtAutor;
@@ -53,7 +56,6 @@ public class CadastroLivroController implements Initializable {
         this.txtEditora = txtEditora;
     }
 
-
     public Livro getLivro() {
         return livro;
     }
@@ -61,25 +63,42 @@ public class CadastroLivroController implements Initializable {
     public void setLivro(Livro livro) {
         this.livro = livro;
     }
-    
-    
-    private LivrosDaoJPA livrosDaoJPA;
+
 
     public Livro getNewLivro() {
-        livro = new Livro();
+        
         livro.setAutor(txtAutor.getText().toString());
         livro.setTitulo(txtTitulo.getText().toString());
         livro.setEditora(txtEditora.getText().toString());
-        
+
         return livro;
     }
 
     @FXML
     public void handlerSalvar(ActionEvent event) {
-        livrosDaoJPA = new LivrosDaoJPA();
-        livro = getNewLivro();
-        livrosDaoJPA.add(livro);
-        btnSalvar.getScene().getWindow().hide();
+
+        boolean isEdit = livro != null;
+        
+        if (!isEdit) {
+            livro = new Livro();
+        }
+
+        livro=getNewLivro();
+        
+        System.out.println(livro.getAutor());
+        
+
+        if (isEdit) {
+
+            dao.update(livro);
+            btnSalvar.getScene().getWindow().hide();
+
+        } else {
+
+            dao.add(livro);
+            btnSalvar.getScene().getWindow().hide();
+        }
+
     }
 
     @FXML

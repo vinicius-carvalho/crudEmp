@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -32,9 +33,15 @@ public class MainControllerEmp implements Initializable {
 
     private LivrosDaoJPA dao;
     CadastroLivroController controller = new CadastroLivroController();
+    
+    @FXML
+    Button btnLivrosEmprestados;
 
     @FXML
     private TableView<Livro> tbllivro;
+    
+    @FXML
+    private TableColumn<Livro, String> tblColID;
 
     @FXML
     private TableColumn<Livro, String> tblColTitulo;
@@ -49,20 +56,16 @@ public class MainControllerEmp implements Initializable {
     private TableColumn<Livro, String> tblColEmprestado;
 
     @FXML
-    private void cadLivro(ActionEvent event)throws IOException {
+    private void cadLivro(ActionEvent event) throws IOException {
 
-       
-            Parent root = FXMLLoader.load(getClass().getResource("/view/CadastroLivro.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/CadastroLivro.fxml"));
 
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            
-            stage.showAndWait();
-            updateView();
-        
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
 
-      
-        
+        stage.showAndWait();
+        updateView();
+
     }
 
     @FXML
@@ -71,7 +74,6 @@ public class MainControllerEmp implements Initializable {
         try {
             Livro livro = tbllivro.getSelectionModel().getSelectedItem();
 
-          
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CadastroLivro.fxml"));
             Parent root = (Parent) loader.load();
             Stage stage = new Stage();
@@ -100,33 +102,37 @@ public class MainControllerEmp implements Initializable {
         updateView();
 
     }
-    
-      @FXML
+
+    @FXML
     private void listaUsuario() throws IOException {
-        
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UsuariosCadastrados.fxml"));
-            Parent root = (Parent) loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-            
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UsuariosCadastrados.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.showAndWait();
 
     }
-    
-        @FXML
-    private void  listaEmprestimo() throws IOException {
-        
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/LivrosEmprestados.fxml"));
-            Parent root = (Parent) loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-            
+
+    @FXML
+    private void listaEmprestimo() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/LivrosEmprestados.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.showAndWait();
 
     }
-    
-    
-    
+
+    @FXML
+    private void listaEmprestimo(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CadastroEmprestimo.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.showAndWait();
+    }
 
     @FXML
     private void fecharMet(ActionEvent event) {
@@ -136,6 +142,7 @@ public class MainControllerEmp implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        tblColID.setCellValueFactory(new PropertyValueFactory<Livro, String>("id"));
         tblColTitulo.setCellValueFactory(new PropertyValueFactory<Livro, String>("titulo"));
         tblColAutor.setCellValueFactory(new PropertyValueFactory<Livro, String>("autor"));
         tblColEditora.setCellValueFactory(new PropertyValueFactory<Livro, String>("editora"));
@@ -149,10 +156,8 @@ public class MainControllerEmp implements Initializable {
 
     private void updateView() {
         tbllivro.setItems(FXCollections.observableArrayList(dao.list()));
-        
 
     }
-    
 
     @FXML
     private void handleBtnAdd(ActionEvent actionevent) throws IOException {
@@ -165,6 +170,17 @@ public class MainControllerEmp implements Initializable {
 
         updateView();
 
+    }
+    
+    @FXML
+    private void handlerLivrosEmprestados (ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/LivrosEmprestados.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.showAndWait();
+
+        updateView();
     }
 
 }
