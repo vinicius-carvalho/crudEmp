@@ -23,7 +23,6 @@ import model.emprestimo.Emprestimo;
  */
 public class CadastroEmprestimoController implements Initializable {
 
-    private Emprestimo emp;
     private EmprestimoDaoJPA dao = new EmprestimoDaoJPA();
 
     @FXML
@@ -35,7 +34,7 @@ public class CadastroEmprestimoController implements Initializable {
     @FXML
     Label lblErro;
 
-    private Emprestimo emprestimo;
+    private Emprestimo emp;
 
     public Emprestimo getNewEmprestimo() {
 
@@ -46,12 +45,12 @@ public class CadastroEmprestimoController implements Initializable {
             String dataEmprestimo = txtDataEmprestimo.getText().toString();
             String dataEntrega = txtDataEntrega.getText().toString();
 
-            emprestimo.setCodUser(codUser);
-            emprestimo.setCodLivro(codLivro);
-            emprestimo.setDataEmprestimo(dataEmprestimo);
-            emprestimo.setDataEntrega(dataEntrega);
+            emp.setCodUser(codUser);
+            emp.setCodLivro(codLivro);
+            emp.setDataEmprestimo(dataEmprestimo);
+            emp.setDataEntrega(dataEntrega);
 
-            return emprestimo;
+            return emp;
 
         } catch (Exception e) {
             lblErro.setText("Erro: Código do Usuário ou Código Livro estão incorreto");
@@ -121,11 +120,11 @@ public class CadastroEmprestimoController implements Initializable {
     }
 
     public Emprestimo getEmprestimo() {
-        return emprestimo;
+        return emp;
     }
 
     public void setEmprestimo(Emprestimo emprestimo) {
-        this.emprestimo = emprestimo;
+        this.emp = emprestimo;
     }
 
     @Override
